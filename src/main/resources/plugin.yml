@@ -1,0 +1,10 @@
+name: MinecraftSmashHeroes
+version: '${project.version}'
+main: me.tammon.minecraftsmashheroes.MinecraftSmashHeroes
+api-version: '1.20'
+authors: [Tammon]
+description: A recreation of Hypixel's Smash Heroes
+commands:
+  setHero:
+    description: Used to set the hero of the caller of the command
+    usage: /setHero <hero_name>
