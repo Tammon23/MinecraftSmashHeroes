@@ -9,7 +9,6 @@ public final class MinecraftSmashHeroes extends JavaPlugin {
     public void onEnable() {
         // Plugin startup logic
         System.out.println("[MinecraftSmashHeroes] Starting plugin.");
-
         this.getCommand("setHero").setExecutor(new CommandSetHero());
     }
 
