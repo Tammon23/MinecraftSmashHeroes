@@ -1,4 +1,4 @@
-package me.tammon.minecraftsmashheroes.Heroes.BaseAbilities;
+package me.tammon.minecraftsmashheroes.Features.BaseAbilities;
 
 import me.tammon.minecraftsmashheroes.Heroes.Ability;
 import org.bukkit.util.Vector;

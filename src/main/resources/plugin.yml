@@ -8,3 +8,6 @@ commands:
   setHero:
     description: Used to set the hero of the caller of the command
     usage: /setHero <hero_name>
+  getCustomItem:
+    description: Used to get custom hero items
+    usage: /getCustomItem <item_name>
