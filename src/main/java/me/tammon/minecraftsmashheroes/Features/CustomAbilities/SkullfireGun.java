@@ -9,16 +9,16 @@ import org.bukkit.inventory.meta.ItemMeta;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Gun extends InstantRanged {
+public class SkullfireGun extends InstantRanged {
     private static ItemStack skullfire_gun;
     public final static int damage_distance = 30;
 
-    public Gun() {
+    public SkullfireGun() {
         super("example title", "example description");
         createGun(false);
     }
 
-    public Gun(boolean user_masterskin) {
+    public SkullfireGun(boolean user_masterskin) {
         super("example title", "example description");
         createGun(user_masterskin);
     }
