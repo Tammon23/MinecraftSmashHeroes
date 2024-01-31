@@ -17,7 +17,7 @@ public class ShooterUseEvent implements Listener {
             if (event.getItem() != null){
                 if (event.getItem().getItemMeta().equals(TinmanShooter.getTinman_shooter().getItemMeta())) {
                     Player player = event.getPlayer();
-                    player.playSound(player, "tinman.blastershot1", 1f, 1f);
+                    player.playSound(player, "tinman.blastershot", 1f, 1f);
 
 
                     Bullet bullet = new Bullet(player,
