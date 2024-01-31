@@ -8,7 +8,4 @@ public abstract class DelayedRanged extends Ability {
     public DelayedRanged(String lore_title, String lore_description) {
         super(lore_title, lore_description);
     }
-
-    public abstract void move();
-    public abstract void onHit();
 }
