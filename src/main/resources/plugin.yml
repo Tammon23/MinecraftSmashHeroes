@@ -11,3 +11,6 @@ commands:
   getCustomItem:
     description: Used to get custom hero items
     usage: /getCustomItem <item_name>
+  summonVehicle:
+    description: Used to summon a vehicle that can be ridden
+    usage: /summonVehicle <vehicle_name>
