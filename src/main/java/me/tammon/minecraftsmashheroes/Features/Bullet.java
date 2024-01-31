@@ -29,7 +29,7 @@ public class Bullet extends BukkitRunnable {
 
     public Bullet(Player shooter, BlockData bullet_material, int max_life, int speed, BiPredicate<Entity, Vector> onHitEntity, BiPredicate<Block, Vector> onHitBlock){
         World world = shooter.getWorld();
-        Location spawn_location = shooter.getEyeLocation();
+        Location spawn_location = shooter.getLocation();
 
         BlockDisplay blockDisplay = (BlockDisplay) world.spawnEntity(
                 spawn_location,
@@ -47,10 +47,16 @@ public class Bullet extends BukkitRunnable {
         blockDisplay.setRotation(spawn_location.getYaw(), spawn_location.getPitch());
 
 
+        Location new_spawn_location = spawn_location.clone();
+        new_spawn_location.setY(0);
+
+
+
         this.bullet_shooter = shooter.getEntityId();
-        this.armor_stand = (ArmorStand) world.spawnEntity(spawn_location, EntityType.ARMOR_STAND);
+        this.armor_stand = (ArmorStand) world.spawnEntity(new_spawn_location, EntityType.ARMOR_STAND);
         this.armor_stand.setVisible(false);
         this.armor_stand.setSmall(true);
+        this.armor_stand.teleport(spawn_location);
         this.armor_stand.addPassenger(blockDisplay);
 
         this.bullet = blockDisplay;
@@ -67,6 +73,7 @@ public class Bullet extends BukkitRunnable {
     public void kill(){
         this.max_life = 0;
         this.bullet.remove();
+        this.armor_stand.remove();
         this.is_running = false;
         this.cancel();
     }
