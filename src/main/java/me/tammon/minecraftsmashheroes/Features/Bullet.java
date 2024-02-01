@@ -1,5 +1,6 @@
 package me.tammon.minecraftsmashheroes.Features;
 
+import me.tammon.minecraftsmashheroes.Helper;
 import me.tammon.minecraftsmashheroes.MinecraftSmashHeroes;
 import org.bukkit.FluidCollisionMode;
 import org.bukkit.Location;
@@ -41,22 +42,14 @@ public class Bullet extends BukkitRunnable {
         transformation.getTranslation().y = -1f;
         transformation.getLeftRotation().y = -1f;
 
-
         blockDisplay.setBlock(bullet_material);
         blockDisplay.setTransformation(transformation);
         blockDisplay.setRotation(spawn_location.getYaw(), spawn_location.getPitch());
 
-
-        Location new_spawn_location = spawn_location.clone();
-        new_spawn_location.setY(0);
-
-
-
         this.bullet_shooter = shooter.getEntityId();
-        this.armor_stand = (ArmorStand) world.spawnEntity(new_spawn_location, EntityType.ARMOR_STAND);
-        this.armor_stand.setVisible(false);
+
+        this.armor_stand = (ArmorStand) Helper.SpawnInvisibleArmorStand(spawn_location, true, true);
         this.armor_stand.setSmall(true);
-        this.armor_stand.teleport(spawn_location);
         this.armor_stand.addPassenger(blockDisplay);
 
         this.bullet = blockDisplay;
