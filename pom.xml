@@ -10,40 +10,102 @@
   <packaging>jar</packaging>
 
   <name>MinecraftSmashHeroes</name>
-
     <description>A recreation of Hypixel's Smash Heroes</description>
     <properties>
     <java.version>1.8</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <remapped.version>1.20.4-R0.1-SNAPSHOT</remapped.version>
   </properties>
 
   <build>
     <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.8.1</version>
-        <configuration>
-          <source>${java.version}</source>
-          <target>${java.version}</target>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-shade-plugin</artifactId>
-        <version>3.2.4</version>
-        <configuration>
-          <outputDirectory>server/plugins</outputDirectory>
-        </configuration>
-        <executions>
-          <execution>
-            <phase>package</phase>
-            <goals>
-              <goal>shade</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
+<!--      <plugin>-->
+<!--        <groupId>org.apache.maven.plugins</groupId>-->
+<!--        <artifactId>maven-compiler-plugin</artifactId>-->
+<!--        <version>3.8.1</version>-->
+<!--        <configuration>-->
+<!--          <source>${java.version}</source>-->
+<!--          <target>${java.version}</target>-->
+<!--        </configuration>-->
+<!--      </plugin>-->
+<!--      <plugin>-->
+<!--        <groupId>org.apache.maven.plugins</groupId>-->
+<!--        <artifactId>maven-shade-plugin</artifactId>-->
+<!--        <version>3.2.4</version>-->
+<!--&lt;!&ndash;        <configuration>&ndash;&gt;-->
+<!--&lt;!&ndash;          <outputDirectory>server/plugins</outputDirectory>&ndash;&gt;-->
+<!--&lt;!&ndash;        </configuration>&ndash;&gt;-->
+<!--        <executions>-->
+<!--          <execution>-->
+<!--            <phase>package</phase>-->
+<!--            <goals>-->
+<!--              <goal>shade</goal>-->
+<!--            </goals>-->
+<!--          </execution>-->
+<!--        </executions>-->
+<!--      </plugin>-->
+        <plugin>
+            <groupId>net.md-5</groupId>
+            <artifactId>specialsource-maven-plugin</artifactId>
+            <!-- Get the latest version from https://mvnrepository.com/artifact/net.md-5/specialsource-maven-plugin -->
+            <version>2.0.2</version>
+            <executions>
+                <execution>
+                    <phase>package</phase>
+                    <goals>
+                        <goal>remap</goal>
+                    </goals>
+                    <id>remap-obf</id>
+                    <configuration>
+                        <srgIn>org.spigotmc:minecraft-server:${remapped.version}:txt:maps-mojang</srgIn>
+                        <reverse>true</reverse>
+                        <remappedDependencies>org.spigotmc:spigot:${remapped.version}:jar:remapped-mojang</remappedDependencies>
+                        <remappedArtifactAttached>true</remappedArtifactAttached>
+                        <remappedClassifierName>remapped-obf</remappedClassifierName>
+                    </configuration>
+                </execution>
+                <execution>
+                    <phase>package</phase>
+                    <goals>
+                        <goal>remap</goal>
+                    </goals>
+                    <id>remap-spigot</id>
+                    <configuration>
+                        <inputFile>${project.build.directory}/${project.artifactId}-${project.version}-remapped-obf.jar</inputFile>
+                        <srgIn>org.spigotmc:minecraft-server:${remapped.version}:csrg:maps-spigot</srgIn>
+                        <remappedDependencies>org.spigotmc:spigot:${remapped.version}:jar:remapped-obf</remappedDependencies>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>
+
+
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-resources-plugin</artifactId>
+            <version>3.2.0</version>
+            <executions>
+                <execution>
+                    <id>copy-jar-to-plugins-folder</id>
+                    <phase>package</phase>
+                    <goals>
+                        <goal>copy-resources</goal>
+                    </goals>
+                    <configuration>
+                        <outputDirectory>server/plugins/</outputDirectory>
+                        <resources>
+                            <resource>
+                                <directory>${project.build.directory}</directory>
+                                <includes>
+                                    <include>${project.artifactId}-${project.version}.jar</include>
+                                </includes>
+                            </resource>
+                        </resources>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>
+
     </plugins>
     <resources>
       <resource>
@@ -67,9 +129,9 @@
   <dependencies>
       <dependency>
           <groupId>org.spigotmc</groupId>
-          <artifactId>spigot-api</artifactId>
-          <version>1.20.4-R0.1-SNAPSHOT</version>
-          <scope>provided</scope>
+          <artifactId>spigot</artifactId>
+          <version>${remapped.version}</version>
+          <classifier>remapped-mojang</classifier>
       </dependency>
   </dependencies>
 </project>
