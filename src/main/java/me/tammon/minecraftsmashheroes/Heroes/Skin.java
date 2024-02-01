@@ -16,19 +16,19 @@ public class Skin {
         this.boots = boots;
 
         ItemMeta helmet_meta = this.helmet.getItemMeta();
-        helmet_meta.setDisplayName(format_string.formatted(hero.get_clean_name(), "Mask"));
+        helmet_meta.setDisplayName(String.format(format_string, hero.get_clean_name(), "Mask"));
         this.helmet.setItemMeta(helmet_meta);
 
         ItemMeta chest_piece_meta = this.chest_plate.getItemMeta();
-        chest_piece_meta.setDisplayName(format_string.formatted(hero.get_clean_name(), "Chestpiece"));
+        chest_piece_meta.setDisplayName(String.format(format_string, hero.get_clean_name(), "Chestpiece"));
         this.chest_plate.setItemMeta(chest_piece_meta);
 
         ItemMeta leggings_meta = this.leggings.getItemMeta();
-        leggings_meta.setDisplayName(format_string.formatted(hero.get_clean_name(), "Pants"));
+        leggings_meta.setDisplayName(String.format(format_string, hero.get_clean_name(), "Pants"));
         this.leggings.setItemMeta(leggings_meta);
 
         ItemMeta boots_meta = this.boots.getItemMeta();
-        boots_meta.setDisplayName(format_string.formatted(hero.get_clean_name(), "Boots"));
+        boots_meta.setDisplayName(String.format(format_string, hero.get_clean_name(), "Boots"));
         this.boots.setItemMeta(boots_meta);
 
 

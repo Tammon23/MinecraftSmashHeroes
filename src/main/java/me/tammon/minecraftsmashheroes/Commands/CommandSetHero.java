@@ -27,7 +27,7 @@ public class CommandSetHero implements CommandExecutor {
                     selected_hero_enum = HeroNameEnum.valueOf(args[0].toUpperCase());
                 }
                 catch (IllegalArgumentException e) {
-                    player.sendMessage("Unknown hero: %s".formatted(args[0].toLowerCase()));
+                    player.sendMessage(String.format("Unknown hero: %s", args[0].toLowerCase()));
                     return true;
                 }
 

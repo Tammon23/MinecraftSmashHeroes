@@ -31,7 +31,7 @@ public class CommandGetCustomItem implements CommandExecutor {
                 break;
 
             default:
-                player.sendMessage("unknown item name %s".formatted(args[0].toLowerCase()));
+                player.sendMessage(String.format("unknown item name %s", args[0].toLowerCase()));
                 break;
         }
 
