@@ -1,4 +1,4 @@
-package me.tammon.minecraftsmashheroes.Heroes.CustomHeroes;
+package me.tammon.minecraftsmashheroes.Heroes.CustomHeroes.Botmon;
 
 import me.tammon.minecraftsmashheroes.Helper;
 import me.tammon.minecraftsmashheroes.Heroes.Hero;

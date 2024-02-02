@@ -1,4 +1,4 @@
-package me.tammon.minecraftsmashheroes.Features.CustomAbilities;
+package me.tammon.minecraftsmashheroes.Heroes.CustomHeroes.Skullfire;
 
 import me.tammon.minecraftsmashheroes.Features.BaseAbilities.InstantRanged;
 import org.bukkit.ChatColor;

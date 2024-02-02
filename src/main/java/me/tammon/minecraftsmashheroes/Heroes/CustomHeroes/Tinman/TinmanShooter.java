@@ -1,4 +1,4 @@
-package me.tammon.minecraftsmashheroes.Features.CustomAbilities;
+package me.tammon.minecraftsmashheroes.Heroes.CustomHeroes.Tinman;
 
 import me.tammon.minecraftsmashheroes.Features.BaseAbilities.DelayedRanged;
 import org.bukkit.ChatColor;
