@@ -1,5 +1,6 @@
 package me.tammon.minecraftsmashheroes;
 
+import me.tammon.minecraftsmashheroes.Commands.CommandDrawLine;
 import me.tammon.minecraftsmashheroes.Commands.CommandGetCustomItem;
 import me.tammon.minecraftsmashheroes.Commands.CommandSetHero;
 import me.tammon.minecraftsmashheroes.Commands.CommandSummonVehicle;
@@ -30,6 +31,7 @@ public final class MinecraftSmashHeroes extends JavaPlugin {
         this.getCommand("setHero").setExecutor(new CommandSetHero());
         this.getCommand("getCustomItem").setExecutor(new CommandGetCustomItem());
         this.getCommand("summonVehicle").setExecutor(new CommandSummonVehicle());
+        this.getCommand("drawLine").setExecutor(new CommandDrawLine());
 
         SkullfireGun skullfireGun = new SkullfireGun();
         TinmanShooter tinmanShooter = new TinmanShooter(100, 1);

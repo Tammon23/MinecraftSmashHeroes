@@ -14,3 +14,6 @@ commands:
   summonVehicle:
     description: Used to summon a vehicle that can be ridden
     usage: /summonVehicle <vehicle_name>
+  drawLine:
+    description: Draws a line over a given distance
+    usage: /drawLine <distance>
