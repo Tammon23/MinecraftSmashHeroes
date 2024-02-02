@@ -1,7 +1,7 @@
 package me.tammon.minecraftsmashheroes.Events.Tinman;
 
 import me.tammon.minecraftsmashheroes.Features.Bullet;
-import me.tammon.minecraftsmashheroes.Features.CustomAbilities.TinmanShooter;
+import me.tammon.minecraftsmashheroes.Heroes.CustomHeroes.Tinman.TinmanShooter;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

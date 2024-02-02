@@ -1,7 +1,7 @@
 package me.tammon.minecraftsmashheroes.Commands;
 
-import me.tammon.minecraftsmashheroes.Features.CustomAbilities.SkullfireGun;
-import me.tammon.minecraftsmashheroes.Features.CustomAbilities.TinmanShooter;
+import me.tammon.minecraftsmashheroes.Heroes.CustomHeroes.Skullfire.SkullfireGun;
+import me.tammon.minecraftsmashheroes.Heroes.CustomHeroes.Tinman.TinmanShooter;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;

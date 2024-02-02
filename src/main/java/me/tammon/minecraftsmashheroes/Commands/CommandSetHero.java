@@ -1,9 +1,9 @@
 package me.tammon.minecraftsmashheroes.Commands;
 
-import me.tammon.minecraftsmashheroes.Heroes.CustomHeroes.Botmon;
-import me.tammon.minecraftsmashheroes.Heroes.CustomHeroes.Bulk;
-import me.tammon.minecraftsmashheroes.Heroes.CustomHeroes.CakeMonster;
-import me.tammon.minecraftsmashheroes.Heroes.CustomHeroes.GeneralCluck;
+import me.tammon.minecraftsmashheroes.Heroes.CustomHeroes.Botmon.Botmon;
+import me.tammon.minecraftsmashheroes.Heroes.CustomHeroes.Bulk.Bulk;
+import me.tammon.minecraftsmashheroes.Heroes.CustomHeroes.CakeMonster.CakeMonster;
+import me.tammon.minecraftsmashheroes.Heroes.CustomHeroes.GeneralCluck.GeneralCluck;
 import me.tammon.minecraftsmashheroes.Heroes.Hero;
 import me.tammon.minecraftsmashheroes.Heroes.HeroNameEnum;
 import me.tammon.minecraftsmashheroes.Heroes.Prestige;

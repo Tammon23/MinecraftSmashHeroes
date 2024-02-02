@@ -1,6 +1,6 @@
 package me.tammon.minecraftsmashheroes.Events.Skullfire;
 
-import me.tammon.minecraftsmashheroes.Features.CustomAbilities.SkullfireGun;
+import me.tammon.minecraftsmashheroes.Heroes.CustomHeroes.Skullfire.SkullfireGun;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
