@@ -1,5 +1,6 @@
 package me.tammon.minecraftsmashheroes.Features;
 
+import com.sun.org.apache.xalan.internal.xsltc.runtime.output.TransletOutputHandlerFactory;
 import me.tammon.minecraftsmashheroes.Helper;
 import me.tammon.minecraftsmashheroes.MinecraftSmashHeroes;
 import org.bukkit.FluidCollisionMode;
@@ -13,6 +14,7 @@ import org.bukkit.util.RayTraceResult;
 import org.bukkit.util.Transformation;
 import org.bukkit.util.Vector;
 
+import java.util.Stack;
 import java.util.function.BiPredicate;
 
 
@@ -37,13 +39,7 @@ public class Bullet extends BukkitRunnable {
                 EntityType.BLOCK_DISPLAY
         );
 
-        Transformation transformation = blockDisplay.getTransformation();
-        transformation.getTranslation().x = 1f;
-        transformation.getTranslation().y = -1f;
-        transformation.getLeftRotation().y = -1f;
-
         blockDisplay.setBlock(bullet_material);
-        blockDisplay.setTransformation(transformation);
         blockDisplay.setRotation(spawn_location.getYaw(), spawn_location.getPitch());
 
         this.bullet_shooter = shooter.getEntityId();
@@ -57,6 +53,14 @@ public class Bullet extends BukkitRunnable {
         this.speed = speed;
         this.onHitEntity = onHitEntity;
         this.onHitBlock = onHitBlock;
+    }
+
+    public void setTransformation(Transformation transformation){
+        this.bullet.setTransformation(transformation);
+    }
+
+    public Transformation getTransformation(){
+        return this.bullet.getTransformation();
     }
 
     public boolean IsRunning(){
