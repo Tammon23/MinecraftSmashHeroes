@@ -61,7 +61,7 @@ public class SmashCrystal extends BukkitRunnable {
 
             @Override
             public void run(){
-                if (i == 361){
+                if (i > 360){
                     i = 0;
                 }
                 smash_crystal.setRotation(i, 0);
