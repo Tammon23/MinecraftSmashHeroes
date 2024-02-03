@@ -1,6 +1,5 @@
 package me.tammon.minecraftsmashheroes.Features;
 
-import com.sun.org.apache.xalan.internal.xsltc.runtime.output.TransletOutputHandlerFactory;
 import me.tammon.minecraftsmashheroes.Helper;
 import me.tammon.minecraftsmashheroes.MinecraftSmashHeroes;
 import org.bukkit.FluidCollisionMode;
@@ -14,7 +13,6 @@ import org.bukkit.util.RayTraceResult;
 import org.bukkit.util.Transformation;
 import org.bukkit.util.Vector;
 
-import java.util.Stack;
 import java.util.function.BiPredicate;
 
 
