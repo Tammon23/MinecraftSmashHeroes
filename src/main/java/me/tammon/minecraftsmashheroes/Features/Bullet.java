@@ -19,35 +19,35 @@ import java.util.function.BiPredicate;
 public class Bullet extends BukkitRunnable {
 
     private final BlockDisplay bullet;
-    private final ArmorStand armor_stand;
-    private int max_life;
-    private boolean is_running = false;
+    private final ArmorStand armorStand;
+    private int maxLife;
+    private boolean isRunning = false;
     private final int speed;
-    private final int bullet_shooter;
+    private final int bulletShooter;
 
     private final BiPredicate<Entity, Vector> onHitEntity;
     private final BiPredicate<Block, Vector> onHitBlock;
 
-    public Bullet(Player shooter, BlockData bullet_material, int max_life, int speed, BiPredicate<Entity, Vector> onHitEntity, BiPredicate<Block, Vector> onHitBlock){
+    public Bullet(Player shooter, BlockData bulletMaterial, int maxLife, int speed, BiPredicate<Entity, Vector> onHitEntity, BiPredicate<Block, Vector> onHitBlock){
         World world = shooter.getWorld();
-        Location spawn_location = shooter.getLocation();
+        Location spawnLocation = shooter.getLocation();
 
         BlockDisplay blockDisplay = (BlockDisplay) world.spawnEntity(
-                spawn_location,
+                spawnLocation,
                 EntityType.BLOCK_DISPLAY
         );
 
-        blockDisplay.setBlock(bullet_material);
-        blockDisplay.setRotation(spawn_location.getYaw(), spawn_location.getPitch());
+        blockDisplay.setBlock(bulletMaterial);
+        blockDisplay.setRotation(spawnLocation.getYaw(), spawnLocation.getPitch());
 
-        this.bullet_shooter = shooter.getEntityId();
+        this.bulletShooter = shooter.getEntityId();
 
-        this.armor_stand = (ArmorStand) Helper.SpawnInvisibleArmorStand(spawn_location, true, true);
-        this.armor_stand.setSmall(true);
-        this.armor_stand.addPassenger(blockDisplay);
+        this.armorStand = (ArmorStand) Helper.spawnInvisibleArmorStand(spawnLocation, true, true);
+        this.armorStand.setSmall(true);
+        this.armorStand.addPassenger(blockDisplay);
 
         this.bullet = blockDisplay;
-        this.max_life = max_life;
+        this.maxLife = maxLife;
         this.speed = speed;
         this.onHitEntity = onHitEntity;
         this.onHitBlock = onHitBlock;
@@ -61,28 +61,28 @@ public class Bullet extends BukkitRunnable {
         return this.bullet.getTransformation();
     }
 
-    public boolean IsRunning(){
-        return this.is_running;
+    public boolean isRunning(){
+        return this.isRunning;
     }
 
     public void kill(){
-        this.max_life = 0;
+        this.maxLife = 0;
         this.bullet.remove();
-        this.armor_stand.remove();
-        this.is_running = false;
+        this.armorStand.remove();
+        this.isRunning = false;
         this.cancel();
     }
 
 
-    public synchronized void animate() throws IllegalArgumentException, IllegalStateException {
+    public synchronized void animate() {
         super.runTaskTimer(MinecraftSmashHeroes.PLUGIN, 0L, 1L);
-        this.is_running = true;
+        this.isRunning = true;
     }
 
 
     @Override
     public void run() {
-        if (this.max_life-- < 1){
+        if (this.maxLife-- < 1){
             this.kill();
             return;
         }
@@ -99,29 +99,29 @@ public class Bullet extends BukkitRunnable {
                 1,
                 entity -> {
                     int id = entity.getEntityId();
-                    return id != bullet_shooter && id != this.armor_stand.getEntityId() && id != bullet.getEntityId();
+                    return id != bulletShooter && id != this.armorStand.getEntityId() && id != bullet.getEntityId();
                 }
         );
 
         if (result != null){
-            Vector hit_position = result.getHitPosition();
+            Vector hitPosition = result.getHitPosition();
 
             Entity entity = result.getHitEntity();
             if (entity != null)
-                if (this.onHitEntity.test(entity, hit_position)){
+                if (this.onHitEntity.test(entity, hitPosition)){
                     this.kill();
                     return;
                 }
 
             Block block = result.getHitBlock();
             if (block != null)
-                if (this.onHitBlock.test(block, hit_position)){
+                if (this.onHitBlock.test(block, hitPosition)){
                     this.kill();
                     return;
                 }
         }
 
-        this.armor_stand.setVelocity(
+        this.armorStand.setVelocity(
                 location.getDirection().multiply(this.speed)
         );
     }

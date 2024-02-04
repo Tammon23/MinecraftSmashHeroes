@@ -5,14 +5,14 @@ import org.bukkit.entity.Player;
 public abstract class Hero {
     protected Player player;
     protected HeroNameEnum name;
-    protected double max_health_points;
-    protected Skin base_skin;
-    protected Skin master_skin;
+    protected double maxHealthPoints;
+    protected Skin baseSkin;
+    protected Skin masterSkin;
 
     protected final Prestige prestige;
     protected Ability primary;
     protected Ability secondary;
-    protected Ability smash_ability;
+    protected Ability smashAbility;
     protected Ability passive;
 
 
@@ -21,24 +21,24 @@ public abstract class Hero {
         this.name = name;
 
         this.prestige = prestige;
-        this.max_health_points = prestige.getValue();
+        this.maxHealthPoints = prestige.getValue();
 
     }
 
 
     /** Used to apply armour the player using this hero */
-    public void ApplyOutfit(boolean is_masters){
-        if (is_masters && this.master_skin != null){
-            this.player.getInventory().setHelmet(this.master_skin.helmet);
-            this.player.getInventory().setChestplate(this.master_skin.chest_plate);
-            this.player.getInventory().setLeggings(this.master_skin.leggings);
-            this.player.getInventory().setBoots(this.master_skin.boots);
+    public void ApplyOutfit(boolean isMasters){
+        if (isMasters && this.masterSkin != null){
+            this.player.getInventory().setHelmet(this.masterSkin.helmet);
+            this.player.getInventory().setChestplate(this.masterSkin.chestPlate);
+            this.player.getInventory().setLeggings(this.masterSkin.leggings);
+            this.player.getInventory().setBoots(this.masterSkin.boots);
 
-        } else if (!is_masters && this.base_skin != null) {
-            this.player.getInventory().setHelmet(this.base_skin.helmet);
-            this.player.getInventory().setChestplate(this.base_skin.chest_plate);
-            this.player.getInventory().setLeggings(this.base_skin.leggings);
-            this.player.getInventory().setBoots(this.base_skin.boots);
+        } else if (!isMasters && this.baseSkin != null) {
+            this.player.getInventory().setHelmet(this.baseSkin.helmet);
+            this.player.getInventory().setChestplate(this.baseSkin.chestPlate);
+            this.player.getInventory().setLeggings(this.baseSkin.leggings);
+            this.player.getInventory().setBoots(this.baseSkin.boots);
         }
     }
 }

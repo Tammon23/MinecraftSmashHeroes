@@ -2,7 +2,6 @@ package me.tammon.minecraftsmashheroes.Events.Karakot;
 
 import me.tammon.minecraftsmashheroes.Features.Bullet;
 import me.tammon.minecraftsmashheroes.Heroes.CustomHeroes.Karakot.Kamehameha;
-import me.tammon.minecraftsmashheroes.Heroes.CustomHeroes.Shoop.ShoopShooter;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -18,13 +17,13 @@ public class KarakotHandUse implements Listener {
         if (event.getAction() == Action.RIGHT_CLICK_BLOCK ||
                 event.getAction() == Action.RIGHT_CLICK_AIR){
             if (event.getItem() != null){
-                if (event.getItem().getItemMeta().equals(Kamehameha.get_KamehamehaHand().getItemMeta())) {
+                if (event.getItem().getItemMeta().equals(Kamehameha.getKamehamehaHand().getItemMeta())) {
                     Player player = event.getPlayer();
                     player.playSound(player, "goku.kiblast", 1f, 1f);
 
                     Bullet bullet = new Bullet(player,
                             Material.ALLIUM.createBlockData(),
-                            Kamehameha.getMax_bullet_life(),
+                            Kamehameha.getMaxBulletLife(),
                             Kamehameha.getSpeed(),
                             (entity, vector) -> {player.sendMessage("hit entity " + entity.getName() + " at: " + vector); return true;},
                             (block, vector) -> {player.sendMessage("hit block " + block + " at: " + vector); return true;});

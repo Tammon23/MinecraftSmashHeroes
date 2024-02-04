@@ -14,22 +14,22 @@ public class Botmon extends Hero {
     public Botmon(Player player, Prestige prestige) {
         super(player, HeroNameEnum.CAKE_MONSTER, prestige);
 
-        this.base_skin = new Skin(
+        this.baseSkin = new Skin(
                 this.name,
                 ChatColor.AQUA + "%s's %s",
                 new ItemStack(Material.BROWN_CARPET),
-                Helper.GetDyedLeatherArmour(Material.LEATHER_CHESTPLATE, 	26, 42, 52),
-                Helper.GetDyedLeatherArmour(Material.LEATHER_LEGGINGS, 	26, 42, 52),
-                Helper.GetDyedLeatherArmour(Material.LEATHER_BOOTS, 	26, 42, 52)
+                Helper.getDyedLeatherArmour(Material.LEATHER_CHESTPLATE, 	26, 42, 52),
+                Helper.getDyedLeatherArmour(Material.LEATHER_LEGGINGS, 	26, 42, 52),
+                Helper.getDyedLeatherArmour(Material.LEATHER_BOOTS, 	26, 42, 52)
         );
 
-        this.master_skin = new Skin(
+        this.masterSkin = new Skin(
                 this.name,
                 ChatColor.AQUA + "%s's Master %s",
                 new ItemStack(Material.DISPENSER),
-                Helper.GetDyedLeatherArmour(Material.LEATHER_CHESTPLATE,202, 22, 22),
-                Helper.GetDyedLeatherArmour(Material.LEATHER_LEGGINGS, 255, 255, 0),
-                Helper.GetDyedLeatherArmour(Material.LEATHER_BOOTS, 	26, 42, 52)
+                Helper.getDyedLeatherArmour(Material.LEATHER_CHESTPLATE,202, 22, 22),
+                Helper.getDyedLeatherArmour(Material.LEATHER_LEGGINGS, 255, 255, 0),
+                Helper.getDyedLeatherArmour(Material.LEATHER_BOOTS, 	26, 42, 52)
         );
     }
 }

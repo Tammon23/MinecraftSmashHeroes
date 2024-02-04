@@ -11,24 +11,24 @@ import java.util.List;
 
 public class Blaster extends DelayedRanged {
     private static ItemStack blaster;
-    private static int max_bullet_life;
+    private static int maxBulletLife;
     private static int speed;
 
-    public Blaster(int max_bullet_life,  int speed) {
-        this(max_bullet_life, speed, false);
+    public Blaster(int maxBulletLife, int speed) {
+        this(maxBulletLife, speed, false);
 
     }
 
-    public Blaster(int max_bullet_life, int speed, boolean use_masterskin) {
+    public Blaster(int maxBulletLife, int speed, boolean useMasterskin) {
         super("example title", "example description");
 
-        Blaster.max_bullet_life = max_bullet_life;
+        Blaster.maxBulletLife = maxBulletLife;
         Blaster.speed = speed;
 
-        Blaster.createGun(use_masterskin);
+        Blaster.createGun(useMasterskin);
     }
 
-    private static void createGun(boolean is_masterskinned){
+    private static void createGun(boolean useMasterskin){
         ItemStack item = new ItemStack(Material.WOODEN_AXE);
 
         ItemMeta meta = item.getItemMeta();
@@ -47,8 +47,8 @@ public class Blaster extends DelayedRanged {
         return speed != 0 ? speed : 1;
     }
 
-    public static int getMax_bullet_life() {
-        return max_bullet_life != 0 ? max_bullet_life : 100;
+    public static int getMaxBulletLife() {
+        return maxBulletLife != 0 ? maxBulletLife : 100;
     }
 
     public static ItemStack get_general_cluck_blaster() {

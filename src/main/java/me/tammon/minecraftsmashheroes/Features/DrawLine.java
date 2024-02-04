@@ -19,72 +19,72 @@ public class DrawLine {
     private final Location start;
     private Location end;
 
-    private final int segment_spacing;
-    private final int segment_length;
-    private final BlockData segment_material;
+    private final int segmentSpacing;
+    private final int segmentLength;
+    private final BlockData segmentMaterial;
 
-    private int line_length;
-    private final long max_life;
+    private int lineLength;
+    private final long maxLife;
     private final Collection<Entity> segments = new ArrayList<>();
-    private Transformation segment_transformation = new Transformation(
+    private Transformation segmentTransformation = new Transformation(
             new Vector3f(-1, -1, 0),
             new Quaternionf(0, 1, 0, 1),
             new Vector3f(1, 1, 1),
             new Quaternionf()
     );
 
-    public DrawLine(World world, Location start, Location end, int segment_spacing, int segment_length, BlockData segment_material, long max_life){
+    public DrawLine(World world, Location start, Location end, int segmentSpacing, int segmentLength, BlockData segmentMaterial, long maxLife){
         this.world = world;
         this.start = start;
         this.end = end;
-        this.segment_spacing = segment_spacing;
-        this.segment_length = segment_length;
-        this.segment_material = segment_material;
-        this.max_life = max_life;
+        this.segmentSpacing = segmentSpacing;
+        this.segmentLength = segmentLength;
+        this.segmentMaterial = segmentMaterial;
+        this.maxLife = maxLife;
     }
 
-    public DrawLine(World world, Location start, int line_length, int segment_spacing, int segment_length, BlockData segment_material, long max_life){
+    public DrawLine(World world, Location start, int lineLength, int segmentSpacing, int segmentLength, BlockData segmentMaterial, long maxLife){
         this.world = world;
         this.start = start;
-        this.line_length = line_length;
-        this.segment_spacing = segment_spacing;
-        this.segment_length = segment_length;
-        this.segment_material = segment_material;
-        this.max_life = max_life;
+        this.lineLength = lineLength;
+        this.segmentSpacing = segmentSpacing;
+        this.segmentLength = segmentLength;
+        this.segmentMaterial = segmentMaterial;
+        this.maxLife = maxLife;
     }
 
-    public void setSegment_transformation(Transformation transformation){
-        this.segment_transformation = transformation;
+    public void setSegmentTransformation(Transformation transformation){
+        this.segmentTransformation = transformation;
     }
 
     public void draw(){
-        final int number_of_segments;
+        final int numberOfSegments;
         if (this.end != null){
             final double distance = this.start.distance(end);
-            number_of_segments = (int) ((distance + this.segment_spacing) / (this.segment_spacing + this.segment_length));
+            numberOfSegments = (int) ((distance + this.segmentSpacing) / (this.segmentSpacing + this.segmentLength));
         }
         else {
-            number_of_segments = (this.line_length + this.segment_spacing) / (this.segment_spacing + this.segment_length);
+            numberOfSegments = (this.lineLength + this.segmentSpacing) / (this.segmentSpacing + this.segmentLength);
         }
-        drawHelper(number_of_segments);
+        drawHelper(numberOfSegments);
     }
 
-    private void drawHelper(int number_of_segments){
-        final Vector jump_value = this.start.getDirection().normalize().multiply(this.segment_spacing + this.segment_length);
+    private void drawHelper(int numberOfSegments){
+        final Vector jumpValue = this.start.getDirection().normalize().multiply(this.segmentSpacing + this.segmentLength);
         final float yaw = this.start.getYaw();
         final float pitch = this.start.getPitch();
 
-        for (int i = 0; i < number_of_segments; i++){
+        for (int i = 0; i < numberOfSegments; i++){
             BlockDisplay blockDisplay = (BlockDisplay) this.world.spawnEntity(
                     this.start,
                     EntityType.BLOCK_DISPLAY
             );
-            blockDisplay.setBlock(this.segment_material);
+            blockDisplay.setBlock(this.segmentMaterial);
             blockDisplay.setRotation(yaw, pitch);
-            blockDisplay.setTransformation(this.segment_transformation);
+            blockDisplay.setTransformation(this.segmentTransformation);
             this.segments.add(blockDisplay);
 
-            this.start.add(jump_value);
+            this.start.add(jumpValue);
         }
 
         // kill each line segment after max_life ticks
@@ -92,6 +92,6 @@ public class DrawLine {
             for (Entity entity : this.segments){
                 entity.remove();
             }
-        }, this.max_life);
+        }, this.maxLife);
     }
 }

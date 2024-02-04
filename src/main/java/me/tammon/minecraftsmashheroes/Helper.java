@@ -12,23 +12,23 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
 
 public class Helper {
-    public static ItemStack GetDyedLeatherArmour(Material armour_piece, int red, int green, int blue){
-        ItemStack item = new ItemStack(armour_piece);
-        LeatherArmorMeta item_meta = (LeatherArmorMeta)item.getItemMeta();
-        item_meta.setColor(Color.fromRGB(red, green, blue));
-        item.setItemMeta(item_meta);
+    public static ItemStack getDyedLeatherArmour(Material armourPiece, int red, int green, int blue){
+        ItemStack item = new ItemStack(armourPiece);
+        LeatherArmorMeta itemMeta = (LeatherArmorMeta)item.getItemMeta();
+        itemMeta.setColor(Color.fromRGB(red, green, blue));
+        item.setItemMeta(itemMeta);
 
         return item;
     }
 
-    public static Entity SpawnInvisibleArmorStand(Location location, boolean make_small, boolean noclip){
+    public static Entity spawnInvisibleArmorStand(Location location, boolean makeSmall, boolean noclip){
         ServerLevel w = ((CraftWorld)location.getWorld()).getHandle();
         ArmorStand armorStand = new ArmorStand(w, location.getX(), location.getY(), location.getZ());
         armorStand.setXRot(location.getYaw());
         armorStand.setYRot(location.getPitch());
         armorStand.setInvisible(true);
 
-        if (make_small)
+        if (makeSmall)
             armorStand.setSmall(true);
 
         if (noclip)

@@ -10,27 +10,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TinmanShooter extends DelayedRanged{
-    private static ItemStack tinman_shooter;
-    private static int max_bullet_life;
+    private static ItemStack tinmanShooter;
+    private static int maxBulletLife;
     private static int speed;
 
-    public TinmanShooter(int max_bullet_life, int speed) {
-        this(max_bullet_life, speed, false);
+    public TinmanShooter(int maxBulletLife, int speed) {
+        this(maxBulletLife, speed, false);
     }
 
 
-    public TinmanShooter(int max_bullet_life, int speed, boolean use_masterskin) {
+    public TinmanShooter(int maxBulletLife, int speed, boolean useMasterskin) {
         super("example title", "example description");
 
-        TinmanShooter.max_bullet_life = max_bullet_life;
+        TinmanShooter.maxBulletLife = maxBulletLife;
         TinmanShooter.speed = speed;
 
-        TinmanShooter.createGun(use_masterskin);
+        TinmanShooter.createGun(useMasterskin);
     }
 
 
-    private static void createGun(boolean is_masterskinned){
-        ItemStack item = is_masterskinned
+    private static void createGun(boolean userMasterskin){
+        ItemStack item = userMasterskin
                 ? new ItemStack(Material.IRON_HOE)
                 : new ItemStack(Material.GOLDEN_HOE);
 
@@ -43,20 +43,19 @@ public class TinmanShooter extends DelayedRanged{
 
         item.setItemMeta(meta);
 
-        tinman_shooter = item;
+        tinmanShooter = item;
     }
 
     public static int getSpeed() {
         return speed != 0 ? speed : 1;
     }
 
-    public static int getMax_bullet_life() {
-        return max_bullet_life != 0 ? max_bullet_life : 100;
+    public static int getMaxBulletLife() {
+        return maxBulletLife != 0 ? maxBulletLife : 100;
     }
 
-    public static ItemStack getTinman_shooter() {
-        return tinman_shooter;
+    public static ItemStack getTinmanShooter() {
+        return tinmanShooter;
     }
-
 
 }

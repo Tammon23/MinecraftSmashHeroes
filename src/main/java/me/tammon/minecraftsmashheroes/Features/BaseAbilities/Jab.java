@@ -5,10 +5,10 @@ import org.bukkit.util.Vector;
 
 public abstract class Jab extends Ability {
 
-    protected double attack_damage;
-    protected Vector knock_back;
+    protected double attackDamage;
+    protected Vector knockBack;
 
-    public Jab(String lore_title, String lore_description) {
-        super(lore_title, lore_description);
+    public Jab(String loreTitle, String loreDescription) {
+        super(loreTitle, loreDescription);
     }
 }

@@ -23,7 +23,7 @@ public enum HeroNameEnum {
         this.value = value;
     }
 
-    public String get_clean_name(){
+    public String getCleanName(){
         return this.value;
     }
 }

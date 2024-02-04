@@ -19,37 +19,37 @@ public class CommandSetHero implements CommandExecutor {
             Player player = (Player) sender;
 
             if (args.length > 0){
-                boolean use_masterskin = args.length !=1 && args[1].toLowerCase().equals("true");
+                boolean useMasterskin = args.length !=1 && args[1].toLowerCase().equals("true");
                 Hero selected;
-                HeroNameEnum selected_hero_enum;
+                HeroNameEnum selectedHeroEnum;
 
                 try {
-                    selected_hero_enum = HeroNameEnum.valueOf(args[0].toUpperCase());
+                    selectedHeroEnum = HeroNameEnum.valueOf(args[0].toUpperCase());
                 }
                 catch (IllegalArgumentException e) {
                     player.sendMessage(String.format("Unknown hero: %s", args[0].toLowerCase()));
                     return true;
                 }
 
-                switch (selected_hero_enum){
+                switch (selectedHeroEnum){
                     case BULK:
                         selected = new Bulk(player, Prestige.ZERO);
-                        selected.ApplyOutfit(use_masterskin);
+                        selected.ApplyOutfit(useMasterskin);
                         break;
 
                     case GENERAL_CLUCK:
                         selected = new GeneralCluck(player, Prestige.ZERO);
-                        selected.ApplyOutfit(use_masterskin);
+                        selected.ApplyOutfit(useMasterskin);
                         break;
 
                     case CAKE_MONSTER:
                         selected = new CakeMonster(player, Prestige.ZERO);
-                        selected.ApplyOutfit(use_masterskin);
+                        selected.ApplyOutfit(useMasterskin);
                         break;
 
                     case BOTMON:
                         selected = new Botmon(player, Prestige.ZERO);
-                        selected.ApplyOutfit(use_masterskin);
+                        selected.ApplyOutfit(useMasterskin);
                         break;
 
                     default:

@@ -2,7 +2,6 @@ package me.tammon.minecraftsmashheroes.Events.GeneralCluck;
 
 import me.tammon.minecraftsmashheroes.Features.Bullet;
 import me.tammon.minecraftsmashheroes.Heroes.CustomHeroes.GeneralCluck.Blaster;
-import me.tammon.minecraftsmashheroes.Heroes.CustomHeroes.Shoop.ShoopShooter;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -23,7 +22,7 @@ public class BlasterUseEvent implements Listener {
 
                     Bullet bullet = new Bullet(player,
                             Material.ACACIA_SAPLING.createBlockData(),
-                            Blaster.getMax_bullet_life(),
+                            Blaster.getMaxBulletLife(),
                             Blaster.getSpeed(),
                             (entity, vector) -> {player.sendMessage("hit entity " + entity.getName() + " at: " + vector); return true;},
                             (block, vector) -> {player.sendMessage("hit block " + block + " at: " + vector); return true;});

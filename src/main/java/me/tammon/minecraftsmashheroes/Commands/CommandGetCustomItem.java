@@ -28,44 +28,43 @@ public class CommandGetCustomItem implements CommandExecutor {
         }
 
         Player player = (Player) sender;
-        Inventory player_inventory = player.getInventory();
+        Inventory playerInventory = player.getInventory();
         switch (args[0].toLowerCase()){
             case "skullfire_gun":
-                player_inventory.addItem(SkullfireGun.getSkullfire_gun());
+                playerInventory.addItem(SkullfireGun.getSkullfireGun());
                 break;
 
             case "tinman_shooter":
-                player_inventory.addItem(TinmanShooter.getTinman_shooter());
+                playerInventory.addItem(TinmanShooter.getTinmanShooter());
                 break;
 
             case "shoop_shooter":
-                player_inventory.addItem(ShoopShooter.getShoop_shooter());
+                playerInventory.addItem(ShoopShooter.getShoopShooter());
                 break;
 
             case "karakot_kamehamega":
-                player_inventory.addItem(Kamehameha.get_KamehamehaHand());
+                playerInventory.addItem(Kamehameha.getKamehamehaHand());
                 break;
 
             case "general_cluck_blaster":
-                player_inventory.addItem(Blaster.get_general_cluck_blaster());
+                playerInventory.addItem(Blaster.get_general_cluck_blaster());
                 break;
 
             case "smash_crystal":
                 float x = Float.parseFloat(args[1]);
                 float y = Float.parseFloat(args[2]);
                 float z = Float.parseFloat(args[3]);
-                long countdown_timer = Long.parseLong(args[4]);
+                long countdownTimer = Long.parseLong(args[4]);
 
                 SmashCrystal smashCrystal = new SmashCrystal(
                         player.getWorld(),
                         new Location(player.getWorld(), x, y, z),
                         Material.PINK_STAINED_GLASS_PANE.createBlockData(),
                         Material.RED_CARPET.createBlockData(),
-                        countdown_timer
+                        countdownTimer
                 );
 
                 smashCrystal.start();
-
                 break;
 
             default:
