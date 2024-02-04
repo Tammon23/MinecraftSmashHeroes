@@ -1,9 +1,6 @@
 package me.tammon.minecraftsmashheroes;
 
-import me.tammon.minecraftsmashheroes.Commands.CommandDrawLine;
-import me.tammon.minecraftsmashheroes.Commands.CommandGetCustomItem;
-import me.tammon.minecraftsmashheroes.Commands.CommandSetHero;
-import me.tammon.minecraftsmashheroes.Commands.CommandSummonVehicle;
+import me.tammon.minecraftsmashheroes.Commands.*;
 import me.tammon.minecraftsmashheroes.Events.GeneralCluck.BlasterUseEvent;
 import me.tammon.minecraftsmashheroes.Events.Karakot.KarakotHandUse;
 import me.tammon.minecraftsmashheroes.Events.Shoop.LazerUseEvent;
@@ -31,6 +28,7 @@ public final class MinecraftSmashHeroes extends JavaPlugin {
         this.getCommand("getCustomItem").setExecutor(new CommandGetCustomItem());
         this.getCommand("summonVehicle").setExecutor(new CommandSummonVehicle());
         this.getCommand("drawLine").setExecutor(new CommandDrawLine());
+        this.getCommand("dash").setExecutor(new CommandDash());
 
         SkullfireGun skullfireGun = new SkullfireGun();
         TinmanShooter tinmanShooter = new TinmanShooter(100, 1);

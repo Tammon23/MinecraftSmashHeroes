@@ -17,3 +17,6 @@ commands:
   drawLine:
     description: Draws a line over a given distance
     usage: /drawLine <distance>
+  dash:
+    description: Dashes user a distance forward
+    usage: /dash [distance]
