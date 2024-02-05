@@ -1,5 +1,6 @@
 package me.tammon.minecraftsmashheroes.Commands;
 
+import me.tammon.minecraftsmashheroes.Features.ItemLoadingBar;
 import me.tammon.minecraftsmashheroes.Features.Powerups.SmashCrystal;
 import me.tammon.minecraftsmashheroes.Heroes.CustomHeroes.GeneralCluck.Blaster;
 import me.tammon.minecraftsmashheroes.Heroes.CustomHeroes.Karakot.Kamehameha;
@@ -65,6 +66,14 @@ public class CommandGetCustomItem implements CommandExecutor {
                 );
 
                 smashCrystal.start();
+                break;
+
+            case "item_loading_bar":
+                long duration  = Long.parseLong(args[1]);
+                int slot = Integer.parseInt(args[2]); // 0-8 hot bar, 9-17 top row
+                ItemLoadingBar itemLoadingBar = new ItemLoadingBar(Material.IRON_SHOVEL, Material.ORANGE_DYE, duration, slot);
+                itemLoadingBar.start(player);
+                playerInventory.setItem(slot, itemLoadingBar.getItemTimer());
                 break;
 
             default:
