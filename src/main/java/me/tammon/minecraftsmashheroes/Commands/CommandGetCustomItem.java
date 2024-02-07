@@ -2,11 +2,13 @@ package me.tammon.minecraftsmashheroes.Commands;
 
 import me.tammon.minecraftsmashheroes.Features.ItemLoadingBar;
 import me.tammon.minecraftsmashheroes.Features.Powerups.SmashCrystal;
+import me.tammon.minecraftsmashheroes.Features.Throw;
 import me.tammon.minecraftsmashheroes.Heroes.CustomHeroes.GeneralCluck.Blaster;
 import me.tammon.minecraftsmashheroes.Heroes.CustomHeroes.Karakot.Kamehameha;
 import me.tammon.minecraftsmashheroes.Heroes.CustomHeroes.Shoop.ShoopShooter;
 import me.tammon.minecraftsmashheroes.Heroes.CustomHeroes.Skullfire.SkullfireGun;
 import me.tammon.minecraftsmashheroes.Heroes.CustomHeroes.Tinman.TinmanShooter;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
@@ -14,6 +16,10 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
+import org.bukkit.util.Transformation;
+import org.joml.AxisAngle4f;
+import org.joml.Quaternionf;
+import org.joml.Vector3f;
 
 public class CommandGetCustomItem implements CommandExecutor {
     @Override
@@ -74,6 +80,28 @@ public class CommandGetCustomItem implements CommandExecutor {
                 ItemLoadingBar itemLoadingBar = new ItemLoadingBar(Material.IRON_SHOVEL, Material.ORANGE_DYE, duration, slot);
                 itemLoadingBar.start(player);
                 playerInventory.setItem(slot, itemLoadingBar.getItemTimer());
+                break;
+
+            case "throw":
+                Location location = player.getLocation();
+                location.setY(location.getY() + 10);
+                Throw throwme = new Throw(Material.DARK_PRISMARINE.createBlockData(), location.getDirection().normalize(), 60,
+                    entity -> {
+                        Bukkit.broadcastMessage("Hit entity: " + entity);
+                        return true;
+                    },
+                    block -> {
+                        Bukkit.broadcastMessage("Hit block: " + block);
+                        return false;
+                    }
+                );
+                throwme.setTransformation( new Transformation(
+                        new Vector3f(1, -1, 1),
+                        new Quaternionf(0, -1, 0, 1),
+                        new Vector3f(1, 1, 1),
+                        new Quaternionf(0, 0, 0, 1)
+                ));
+                throwme.launch(location, player.getWorld(), Float.parseFloat(args[1]));
                 break;
 
             default:
