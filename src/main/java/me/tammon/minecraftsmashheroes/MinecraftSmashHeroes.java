@@ -14,6 +14,8 @@ import me.tammon.minecraftsmashheroes.Heroes.CustomHeroes.Tinman.TinmanShooter;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.Objects;
+
 public final class MinecraftSmashHeroes extends JavaPlugin {
 
     public static MinecraftSmashHeroes PLUGIN;
@@ -24,11 +26,11 @@ public final class MinecraftSmashHeroes extends JavaPlugin {
 
         // Plugin startup logic
         System.out.println("[MinecraftSmashHeroes] Starting plugin.");
-        this.getCommand("setHero").setExecutor(new CommandSetHero());
-        this.getCommand("getCustomItem").setExecutor(new CommandGetCustomItem());
-        this.getCommand("summonVehicle").setExecutor(new CommandSummonVehicle());
-        this.getCommand("drawLine").setExecutor(new CommandDrawLine());
-        this.getCommand("dash").setExecutor(new CommandDash());
+        Objects.requireNonNull(this.getCommand("setHero")).setExecutor(new CommandSetHero());
+        Objects.requireNonNull(this.getCommand("getCustomItem")).setExecutor(new CommandGetCustomItem());
+        Objects.requireNonNull(this.getCommand("summonVehicle")).setExecutor(new CommandSummonVehicle());
+        Objects.requireNonNull(this.getCommand("drawLine")).setExecutor(new CommandDrawLine());
+        Objects.requireNonNull(this.getCommand("dash")).setExecutor(new CommandDash());
 
         SkullfireGun skullfireGun = new SkullfireGun();
         TinmanShooter tinmanShooter = new TinmanShooter(100, 1);
