@@ -32,4 +32,59 @@ public class Botmon extends Hero {
                 Helper.getDyedLeatherArmour(Material.LEATHER_BOOTS, 	26, 42, 52)
         );
     }
+
+    @Override
+    public boolean start() {
+        return true;
+    }
+
+    @Override
+    public boolean cleanup() {
+        return true;
+    }
+
+    @Override
+    public void usedAbilityAt(int inventorySlot) {
+
+    }
+
+    @Override
+    public void attackedWithAbilityAt(int inventorySlot) {
+
+    }
+
+    @Override
+    public void onPrimaryUse() {
+
+    }
+
+    @Override
+    public void onPrimaryAttack() {
+
+    }
+
+    @Override
+    public void onSecondaryUse() {
+
+    }
+
+    @Override
+    public void onSecondaryAttack() {
+
+    }
+
+    @Override
+    public void onSmashUse() {
+
+    }
+
+    @Override
+    public void onSmashAttack() {
+
+    }
+
+    @Override
+    public void onPassiveUse() {
+
+    }
 }
