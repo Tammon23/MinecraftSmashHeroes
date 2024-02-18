@@ -1,7 +1,7 @@
 package me.tammon.minecraftsmashheroes.Features;
 
 import me.tammon.minecraftsmashheroes.Features.BaseAbilities.DelayedRanged;
-import me.tammon.minecraftsmashheroes.Helper;
+import me.tammon.minecraftsmashheroes.Util.Helper;
 import me.tammon.minecraftsmashheroes.MinecraftSmashHeroes;
 import org.bukkit.FluidCollisionMode;
 import org.bukkit.Location;

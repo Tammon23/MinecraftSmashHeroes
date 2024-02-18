@@ -1,8 +1,7 @@
-package me.tammon.minecraftsmashheroes;
+package me.tammon.minecraftsmashheroes.Util;
 
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.decoration.ArmorStand;
-import net.minecraft.world.entity.projectile.Snowball;
 import net.minecraft.network.protocol.game.ClientboundRemoveEntitiesPacket;
 import org.bukkit.Bukkit;
 import org.bukkit.Color;

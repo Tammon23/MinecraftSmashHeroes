@@ -1,6 +1,6 @@
 package me.tammon.minecraftsmashheroes.Heroes.CustomHeroes.Botmon;
 
-import me.tammon.minecraftsmashheroes.Helper;
+import me.tammon.minecraftsmashheroes.Util.Helper;
 import me.tammon.minecraftsmashheroes.Heroes.Hero;
 import me.tammon.minecraftsmashheroes.Heroes.HeroNameEnum;
 import me.tammon.minecraftsmashheroes.Heroes.Prestige;

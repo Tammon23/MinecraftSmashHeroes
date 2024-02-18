@@ -1,10 +1,6 @@
 package me.tammon.minecraftsmashheroes.Heroes.CustomHeroes.GeneralCluck;
 
-import me.tammon.minecraftsmashheroes.Helper;
-import me.tammon.minecraftsmashheroes.Heroes.Hero;
-import me.tammon.minecraftsmashheroes.Heroes.HeroNameEnum;
-import me.tammon.minecraftsmashheroes.Heroes.Prestige;
-import me.tammon.minecraftsmashheroes.Heroes.Skin;
+import me.tammon.minecraftsmashheroes.Util.Helper;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
