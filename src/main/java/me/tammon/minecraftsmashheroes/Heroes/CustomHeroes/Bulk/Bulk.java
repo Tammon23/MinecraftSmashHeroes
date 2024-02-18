@@ -12,8 +12,8 @@ import org.bukkit.inventory.ItemStack;
 
 public class Bulk extends Hero {
 
-    public Bulk(Player player, Prestige prestige) {
-        super(player, HeroNameEnum.BULK, prestige);
+    public Bulk(Player player, Prestige prestige, int primaryInventorySlot, int secondaryInventorySlot, int smashInventorySlot) {
+        super(player, HeroNameEnum.BULK, prestige, primaryInventorySlot, secondaryInventorySlot, smashInventorySlot);
 
         this.baseSkin = new Skin(
                 this.name,

@@ -3,7 +3,6 @@ package me.tammon.minecraftsmashheroes.Features;
 import me.tammon.minecraftsmashheroes.Features.BaseAbilities.DelayedRanged;
 import me.tammon.minecraftsmashheroes.Helper;
 import me.tammon.minecraftsmashheroes.MinecraftSmashHeroes;
-import org.bukkit.Bukkit;
 import org.bukkit.FluidCollisionMode;
 import org.bukkit.Location;
 import org.bukkit.World;
@@ -17,7 +16,7 @@ import org.bukkit.util.Vector;
 
 import java.util.function.Predicate;
 
-public class Throw extends DelayedRanged {
+public class Throw implements DelayedRanged {
     private final BlockData itemToThrow;
     private Transformation transformation;
     private final Vector throwVector;
@@ -27,8 +26,6 @@ public class Throw extends DelayedRanged {
     private final Predicate<Vector> onHitBlock;
 
     public Throw(BlockData itemToThrow, Vector throwVector, long dismountAliveFor, Predicate<Entity> onHitEntity, Predicate<Vector> onHitBlock) {
-        super("example lore", "example description");
-
         this.itemToThrow = itemToThrow;
         this.throwVector = throwVector;
         this.dismountAliveFor = dismountAliveFor;

@@ -9,7 +9,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Blaster extends DelayedRanged {
+public class Blaster implements DelayedRanged {
     private static ItemStack blaster;
     private static int maxBulletLife;
     private static int speed;
@@ -20,8 +20,6 @@ public class Blaster extends DelayedRanged {
     }
 
     public Blaster(int maxBulletLife, int speed, boolean useMasterskin) {
-        super("example title", "example description");
-
         Blaster.maxBulletLife = maxBulletLife;
         Blaster.speed = speed;
 

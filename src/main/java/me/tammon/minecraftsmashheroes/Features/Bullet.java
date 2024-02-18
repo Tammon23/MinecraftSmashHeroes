@@ -1,6 +1,6 @@
 package me.tammon.minecraftsmashheroes.Features;
 
-import me.tammon.minecraftsmashheroes.Helper;
+import me.tammon.minecraftsmashheroes.Heroes.Ability;
 import me.tammon.minecraftsmashheroes.MinecraftSmashHeroes;
 import org.bukkit.FluidCollisionMode;
 import org.bukkit.Location;
@@ -16,7 +16,7 @@ import org.bukkit.util.Vector;
 import java.util.function.BiPredicate;
 
 
-public class Bullet extends BukkitRunnable {
+public class Bullet extends BukkitRunnable implements Ability {
 
     private final BlockDisplay bullet;
     private final ArmorStand armorStand;

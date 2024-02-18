@@ -9,7 +9,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Kamehameha extends DelayedRanged {
+public class Kamehameha implements DelayedRanged {
 
     private static ItemStack kamehamehaHand;
     private static int maxBulletLife;
@@ -21,8 +21,6 @@ public class Kamehameha extends DelayedRanged {
 
 
     public Kamehameha(int maxBulletLife, int speed, boolean useMasterskin) {
-        super("example title", "example description");
-
         Kamehameha.maxBulletLife = maxBulletLife;
         Kamehameha.speed = speed;
 

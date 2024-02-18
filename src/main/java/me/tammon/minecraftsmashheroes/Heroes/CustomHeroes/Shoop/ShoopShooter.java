@@ -9,7 +9,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ShoopShooter extends DelayedRanged {
+public class ShoopShooter implements DelayedRanged {
     private static ItemStack shoopShooter;
     private static int maxBulletLife;
     private static int speed;
@@ -20,8 +20,6 @@ public class ShoopShooter extends DelayedRanged {
     }
 
     public ShoopShooter(int maxBulletLife, int speed, boolean useMasterskin) {
-        super("example title", "example description");
-
         ShoopShooter.maxBulletLife = maxBulletLife;
         ShoopShooter.speed = speed;
 

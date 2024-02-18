@@ -11,8 +11,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
 public class Botmon extends Hero {
-    public Botmon(Player player, Prestige prestige) {
-        super(player, HeroNameEnum.CAKE_MONSTER, prestige);
+    public Botmon(Player player, Prestige prestige, int primaryInventorySlot, int secondaryInventorySlot, int smashInventorySlot) {
+        super(player, HeroNameEnum.CAKE_MONSTER, prestige, primaryInventorySlot, secondaryInventorySlot, smashInventorySlot);
 
         this.baseSkin = new Skin(
                 this.name,

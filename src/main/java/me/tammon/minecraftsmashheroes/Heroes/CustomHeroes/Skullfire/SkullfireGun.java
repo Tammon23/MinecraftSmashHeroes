@@ -14,12 +14,10 @@ public class SkullfireGun extends InstantRanged {
     public final static int DAMAGE_DISTANCE = 30;
 
     public SkullfireGun() {
-        super("example title", "example description");
-        createGun(false);
+        this(false);
     }
 
     public SkullfireGun(boolean useMasterskin) {
-        super("example title", "example description");
         createGun(useMasterskin);
     }
 
