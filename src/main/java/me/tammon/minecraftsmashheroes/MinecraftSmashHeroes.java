@@ -1,6 +1,7 @@
 package me.tammon.minecraftsmashheroes;
 
 import me.tammon.minecraftsmashheroes.Commands.*;
+import me.tammon.minecraftsmashheroes.Events.Game.VoidDamageEvent;
 import me.tammon.minecraftsmashheroes.Events.GeneralCluck.BlasterUseEvent;
 import me.tammon.minecraftsmashheroes.Events.Karakot.KarakotHandUse;
 import me.tammon.minecraftsmashheroes.Events.Shoop.LazerUseEvent;
@@ -66,6 +67,7 @@ public final class MinecraftSmashHeroes extends JavaPlugin {
         pluginManager.registerEvents(new LazerUseEvent(), this);
         pluginManager.registerEvents(new KarakotHandUse(), this);
         pluginManager.registerEvents(new BlasterUseEvent(), this);
+        pluginManager.registerEvents(new VoidDamageEvent(), this);
 
 
     }
