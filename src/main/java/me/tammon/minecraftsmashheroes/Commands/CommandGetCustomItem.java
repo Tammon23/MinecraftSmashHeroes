@@ -17,9 +17,10 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.util.Transformation;
-import org.joml.AxisAngle4f;
 import org.joml.Quaternionf;
 import org.joml.Vector3f;
+
+import static me.tammon.minecraftsmashheroes.MinecraftSmashHeroes.HOMING;
 
 public class CommandGetCustomItem implements CommandExecutor {
     @Override
@@ -102,6 +103,13 @@ public class CommandGetCustomItem implements CommandExecutor {
                         new Quaternionf(0, 0, 0, 1)
                 ));
                 throwme.launch(location, player.getWorld(), Float.parseFloat(args[1]));
+                break;
+
+            case "homing":
+                Location homingLocation = player.getLocation();
+                homingLocation.setY(homingLocation.getY() + 20);
+
+                HOMING.start(homingLocation, player, Float.parseFloat(args[1]));
                 break;
 
             default:

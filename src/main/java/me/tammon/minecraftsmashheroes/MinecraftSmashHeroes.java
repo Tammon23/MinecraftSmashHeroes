@@ -6,11 +6,15 @@ import me.tammon.minecraftsmashheroes.Events.Karakot.KarakotHandUse;
 import me.tammon.minecraftsmashheroes.Events.Shoop.LazerUseEvent;
 import me.tammon.minecraftsmashheroes.Events.Skullfire.GunUseEvent;
 import me.tammon.minecraftsmashheroes.Events.Tinman.ShooterUseEvent;
+import me.tammon.minecraftsmashheroes.Features.ItemDisplayHoming;
 import me.tammon.minecraftsmashheroes.Heroes.CustomHeroes.GeneralCluck.Blaster;
 import me.tammon.minecraftsmashheroes.Heroes.CustomHeroes.Karakot.Kamehameha;
 import me.tammon.minecraftsmashheroes.Heroes.CustomHeroes.Shoop.ShoopShooter;
 import me.tammon.minecraftsmashheroes.Heroes.CustomHeroes.Skullfire.SkullfireGun;
 import me.tammon.minecraftsmashheroes.Heroes.CustomHeroes.Tinman.TinmanShooter;
+import org.bukkit.Bukkit;
+import org.bukkit.Material;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -19,6 +23,24 @@ import java.util.Objects;
 public final class MinecraftSmashHeroes extends JavaPlugin {
 
     public static MinecraftSmashHeroes PLUGIN;
+    public static ItemDisplayHoming HOMING = new ItemDisplayHoming(new ItemStack(Material.SUNFLOWER), entity -> {
+        Bukkit.broadcastMessage("hit: " + entity.getName());
+        return true;
+    }, block -> {
+        Bukkit.broadcastMessage("hit: " + block);
+        return true;
+    });
+//    public static EntityHoming HOMING = new EntityHoming(entity -> {
+//        Bukkit.broadcastMessage("hit: " + entity.getName());
+//        return true;
+//    }, block -> {
+//        Bukkit.broadcastMessage("hit: " + block);
+//        return true;
+//    });
+//
+//    static {
+//        HOMING.setHomingEntityDefaultType(EntityType.ARROW);
+//    }
 
     @Override
     public void onEnable() {
